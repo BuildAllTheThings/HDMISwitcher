@@ -9,6 +9,13 @@
 // For switching generic HDMI 5 in / 1 out switches obtained from Amazon by sending simulated infrared codes over the TRS (audio jack) connection in lieu of the included IR receiver
 // The HDMI switcher uses the sleeve as ground, and provides 3.3v over the tip to drive the electronics of the receiver
 // The ring is attached to 3.3v using a pullup resistor, and the IR receiver is expected to pull it low to signal receipt of infrared codes
+//
+// Usage instructions:
+// As an example, to switch the selector wired to pin 1 to input 4, send an HTTPS request like this:
+// POST https://api.particle.io/v1/devices/<device id>/selectInput
+// Content-Type: application/x-www-form-urlencoded
+// 
+// access_token=<your access token>&command=1,4
 // 
 // 
 // 
@@ -116,7 +123,7 @@ void send(uint16_t pin, char address, char command) {
 
 
 
-const char SELECTOR_PINS[] = { (char)A0, (char)A1, (char)A2 };
+const char SELECTOR_PINS[] = { (char)A2, (char)A1, (char)A0 };
 const char INPUT_COMMANDS[] = { 0x40, 0x60, 0x10, 0x50, 0xB0 };
 
 int sendCommand(String args) {
