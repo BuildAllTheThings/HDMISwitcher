@@ -123,7 +123,7 @@ void send(uint16_t pin, char address, char command) {
 
 
 
-const char SELECTOR_PINS[] = { (char)A2, (char)A1, (char)A0 };
+const char SELECTOR_PINS[] = { (char)A2, (char)A1, (char)A0, (char)A3 };
 const char INPUT_COMMANDS[] = { 0x40, 0x60, 0x10, 0x50, 0xB0 };
 
 int sendCommand(String args) {
